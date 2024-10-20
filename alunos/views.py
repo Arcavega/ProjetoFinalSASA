@@ -4,4 +4,11 @@ from .forms import *
 # Create your views here.
 
 def inicio(request):
-    return render(request, 'index.html')
+    formularios = FormServicos.objects.all()
+    context = {'formularios': formularios}
+    return render(request, 'index.html', context)
+
+def cadastrar(request):
+    cadastro = formulario()
+    context = {'form': form}
+    return render(request, 'index.html', context)

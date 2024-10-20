@@ -3,19 +3,12 @@ from django import forms
 
 # Create your models here.
 
+class Servicos (models.Model):
+    nome = models.CharField(max_length=100)
 
-
-class dados2(models.Model):
-    nome = models.CharField(max_length=200)
+class FormServicos (models.Model):
+    nome = models.CharField(max_length=100)
     email = models.EmailField()
-    endereço = models.CharField(max_length=200)
-    cidade = models.CharField(max_length=300)
-    curso = models.CharField(max_length=300)
-    img = models.ImageField(upload_to="./Imagens/", null=True)
-    
-
-    def __str___(self):
-        return self.nome
-
-
-
+    numero = models.IntegerField()
+    mensagem = models.TextField()
+    servico = models.ForeignKey(Servicos, on_delete= models.CASCADE)
