@@ -7,10 +7,10 @@ class formulario(forms.ModelForm):
         model = FormServicos
         fields = "__all__"
 
-        #widgets = {
-            #'nome': forms.TextInput(attrs={'class': 'form-control'}),
-            #'endereço': forms.TextInput(attrs={'class': 'form-control'}),
-            #'cidade': forms.TextInput(attrs={'class': 'form-control'}),
-            #'email': forms.EmailInput(attrs={'class': 'form-control'}),
-            #'curso': forms.TextInput(attrs={'class': 'form-control'}),
-        #}
+        widgets = {
+            'nome': forms.TextInput(attrs={'class': 'form-control'}),
+            'numero': forms.TextInput(attrs={'class': 'form-control'}),
+            'servico': forms.Select(attrs={'class': 'form-control'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control'}),
+            'mensagem': forms.TextInput(attrs={'class': 'form-control'}), 
+        }

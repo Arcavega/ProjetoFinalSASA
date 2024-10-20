@@ -5,10 +5,20 @@ from .forms import *
 
 def inicio(request):
     formularios = FormServicos.objects.all()
-    context = {'formularios': formularios}
-    return render(request, 'index.html', context)
+    return render(request, 'index.html', context = {'formularios': formularios})
 
 def cadastrar(request):
-    cadastro = formulario()
-    context = {'form': form}
+    if request.method == 'POST':
+        form = formulario(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('dados')
+    else:
+
+        form = formulario()
+    context = {
+        'form': form
+    }
     return render(request, 'index.html', context)
+    
+
